@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Style
  *
- * @ORM\Table(name="style")
+ * @ORM\Table(name="cat_style")
  * @ORM\Entity(repositoryClass="AmarinaBundle\Repository\StyleRepository")
  */
 class Style

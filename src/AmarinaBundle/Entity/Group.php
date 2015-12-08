@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Group
  *
- * @ORM\Table(name="group")
+ * @ORM\Table(name="cat_group")
  * @ORM\Entity(repositoryClass="AmarinaBundle\Repository\GroupRepository")
  */
 class Group

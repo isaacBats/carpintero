@@ -1,3 +1,7 @@
 amarina_homepage:
     path:     /
     defaults: { _controller: AmarinaBundle:Default:index }
+
+prueba:
+   path: /createMueble
+   defaults: { _controller: AmarinaBundle:Default:createMueble }

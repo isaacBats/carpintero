@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Character
  *
- * @ORM\Table(name="character")
+ * @ORM\Table(name="cat_character")
  * @ORM\Entity(repositoryClass="AmarinaBundle\Repository\CharacterRepository")
  */
 class Character

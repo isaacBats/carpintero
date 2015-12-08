@@ -1,0 +1,36 @@
+Modelo Alfonzo Marina
+
+
+Mueble
+  -cod_ur
+  -name
+  -price
+  -width
+  -height
+  -deep
+  -diameter
+
+
+
+Style
+  -name
+
+Type
+  -name
+
+Group
+  -name
+
+Use => Category
+  -name
+
+Character
+  -name
+
+Finish
+  -name
+
+CurrentFinish
+  -codFinish
+  -name
+

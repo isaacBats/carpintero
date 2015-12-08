@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Use
  *
- * @ORM\Table(name="use")
- * @ORM\Entity(repositoryClass="AmarinaBundle\Repository\UseRepository")
+ * @ORM\Table(name="categorys")
+ * @ORM\Entity(repositoryClass="AmarinaBundle\Repository\CategoryRepository")
  */
-class Use
+class Category
 {
     /**
      * @var int

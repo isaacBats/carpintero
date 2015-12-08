@@ -70,6 +70,66 @@ class Mueble
      */
     private $diameter;
 
+    /**
+     *@var Style
+     *@ORM\ManyToOne(targetEntity="Style")
+     *@ORM\Joincolumn(name="style_id", referencedColumnName="id")
+     */
+    private $style;
+
+    /**
+     *@var Type
+     *@ORM\ManyToOne(targetEntity="Type")
+     *@ORM\JoinColumn(name="type_id", referencedColumnName="id")
+     */
+    private $type;
+
+    /**
+     *@var Group
+     *@ORM\ManyToOne(targetEntity="Group")
+     *@ORM\JoinColumn(name="group_id", referencedColumnName="id")
+     */
+    private $group;
+
+    /**
+     *@var Category
+     *@ORM\ManyToOne(targetEntity="Category")
+     *@ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
+    /**
+     *@var Character
+     *@ORM\ManyToOne(targetEntity="Character")
+     *@ORM\JoinColumn(name="character_id", referencedColumnName="id") 
+     */
+    private $character;
+
+    /**
+     *@var Finish
+     *@ORM\ManyToMany(targetEntity="Finish", inversedBy="muebles")
+     *@ORM\JoinTable(name="muebles_finishs",
+     *               joinColumns={
+     *                  @ORM\JoinColumn(name="muebles_id", referencedColumnName="id")
+     *               },
+     *               inverseJoinColumns={
+     *                  @ORM\JoinColumn(name="finish_id", referencedColumnName="id")       
+     *               }
+     * ) 
+     */
+    private $finishs;
+
+    /**
+     *@var CurrentFinish
+     *@ORM\ManyToOne(targetEntity="CurrentFinish")
+     *@ORM\JoinColumn(name="currentFinish_id", referencedColumnName="id")
+     */
+    private $currentFinish;
+
+    public function __construct(){
+        $this->finishs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -248,5 +308,182 @@ class Mueble
     {
         return $this->diameter;
     }
-}
 
+    /**
+     * Set style
+     *
+     * @param \AmarinaBundle\Entity\Style $style
+     *
+     * @return Mueble
+     */
+    public function setStyle(\AmarinaBundle\Entity\Style $style = null)
+    {
+        $this->style = $style;
+
+        return $this;
+    }
+
+    /**
+     * Get style
+     *
+     * @return \AmarinaBundle\Entity\Style
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \AmarinaBundle\Entity\Type $type
+     *
+     * @return Mueble
+     */
+    public function setType(\AmarinaBundle\Entity\Type $type = null)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \AmarinaBundle\Entity\Type
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set group
+     *
+     * @param \AmarinaBundle\Entity\Group $group
+     *
+     * @return Mueble
+     */
+    public function setGroup(\AmarinaBundle\Entity\Group $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \AmarinaBundle\Entity\Group
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AmarinaBundle\Entity\Category $category
+     *
+     * @return Mueble
+     */
+    public function setCategory(\AmarinaBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AmarinaBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set character
+     *
+     * @param \AmarinaBundle\Entity\Character $character
+     *
+     * @return Mueble
+     */
+    public function setCharacter(\AmarinaBundle\Entity\Character $character = null)
+    {
+        $this->character = $character;
+
+        return $this;
+    }
+
+    /**
+     * Get character
+     *
+     * @return \AmarinaBundle\Entity\Character
+     */
+    public function getCharacter()
+    {
+        return $this->character;
+    }
+
+    /**
+     * Add finish
+     *
+     * @param \AmarinaBundle\Entity\Finish $finish
+     *
+     * @return Mueble
+     */
+    public function addFinish(\AmarinaBundle\Entity\Finish $finish)
+    {
+        $this->finishs[] = $finish;
+
+        return $this;
+    }
+
+    /**
+     * Remove finish
+     *
+     * @param \AmarinaBundle\Entity\Finish $finish
+     */
+    public function removeFinish(\AmarinaBundle\Entity\Finish $finish)
+    {
+        $this->finishs->removeElement($finish);
+    }
+
+    /**
+     * Get finishs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFinishs()
+    {
+        return $this->finishs;
+    }
+
+    /**
+     * Set currentFinish
+     *
+     * @param \AmarinaBundle\Entity\CurrentFinish $currentFinish
+     *
+     * @return Mueble
+     */
+    public function setCurrentFinish(\AmarinaBundle\Entity\CurrentFinish $currentFinish = null)
+    {
+        $this->currentFinish = $currentFinish;
+
+        return $this;
+    }
+
+    /**
+     * Get currentFinish
+     *
+     * @return \AmarinaBundle\Entity\CurrentFinish
+     */
+    public function getCurrentFinish()
+    {
+        return $this->currentFinish;
+    }
+}
