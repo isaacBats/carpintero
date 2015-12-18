@@ -1,3 +1,7 @@
+cms:
+    resource: "@CmsBundle/Resources/config/routing.yml"
+    prefix:   /
+
 amarina:
     resource: "@AmarinaBundle/Resources/config/routing.yml"
     prefix:   /

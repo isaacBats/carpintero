@@ -18,6 +18,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new AmarinaBundle\AmarinaBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
+            new CmsBundle\CmsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

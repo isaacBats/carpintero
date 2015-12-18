@@ -72,7 +72,7 @@ class DefaultController extends Controller
     	$em->flush();
 
     	return new Response(
-    			'Created furniture number: '.$mueble->getCodUr()
+    			'Created furniture number: '.$mueble->getCodUr().' and name: '.$mueble->getName()
     		);
     	
     }
