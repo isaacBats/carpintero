@@ -10,3 +10,20 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+# Sonata Admin
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+
+#Admin Tree on theh dashboard
+cmf_tree:
+    resource: .
+    type: 'cmf_tree'
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
