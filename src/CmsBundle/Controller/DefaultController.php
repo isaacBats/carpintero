@@ -18,14 +18,14 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
-        $site = $dm->find('Acme\BasicCmsBundle\Document\Site', '/cms');
+        $site = $dm->find('CmsBundle\Document\Site', '/cms');
         $homepage = $site->getHomepage();
 
         if (!$homepage) {
             throw $this->createNotFoundException('No homepage configured');
         }
 
-        return $this->forward('AcmeBasicCmsBundle:Default:page', array(
+        return $this->forward('CmsBundle:Default:page', array(
             'contentDocument' => $homepage
         ));
     }
@@ -66,7 +66,7 @@ class DefaultController extends Controller
         $dm->persist($page);
         $dm->flush();
 
-        return $this->redirect($this->generateUrl('admin_acme_basiccms_page_edit', array(
+        return $this->redirect($this->generateUrl('admin_basiccms_page_edit', array(
             'id' => $page->getId()
         )));
     }
